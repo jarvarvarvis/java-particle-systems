@@ -6,9 +6,9 @@ import java.io.IOException;
 
 public class RoesslerAttractor extends DynamicalParticleSystem {
 
-    float a = 0.1f;
-    float b = 0.1f;
-    float c = 14f;
+    private final float a = 0.1f;
+    private final float b = 0.1f;
+    private final float c = 14f;
 
     public RoesslerAttractor(int particlesAmount) throws IOException {
         super(particlesAmount);

@@ -233,7 +233,7 @@ public class Matrix4f {
     }
 
     /**
-     * Creates a orthographic projection matrix. Similar to
+     * Creates an orthographic projection matrix. Similar to
      * <code>glOrtho(left, right, bottom, top, near, far)</code>.
      *
      * @param left   Coordinate for the left vertical clipping pane

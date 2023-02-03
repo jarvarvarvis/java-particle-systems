@@ -13,7 +13,7 @@ public class Window implements Disposable {
     private int width, height;
     private final long windowHandle;
 
-    private GLFWFramebufferSizeCallback resizeCallback;
+    private final GLFWFramebufferSizeCallback resizeCallback;
     private Callback debugCallback;
 
     private void handleResize(long windowHandle, int width, int height) {

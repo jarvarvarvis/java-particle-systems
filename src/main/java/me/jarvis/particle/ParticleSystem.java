@@ -6,7 +6,6 @@ import me.jarvis.opengl.objects.VAO;
 import me.jarvis.opengl.objects.VBO;
 import me.jarvis.opengl.shader.ShaderFactory;
 import me.jarvis.opengl.shader.ShaderProgram;
-import me.jarvis.util.Mathf;
 import me.jarvis.util.TrigonometryUtils;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL33;
@@ -46,7 +45,7 @@ public class ParticleSystem implements Disposable {
         }
         this.randomizeParticlePositionsInUnitSphere();
 
-        this.shader = ShaderFactory.loadProgramFromResources("shaders/vert.glsl", "shaders/frag.glsl");;
+        this.shader = ShaderFactory.loadProgramFromResources("shaders/vert.glsl", "shaders/frag.glsl");
         this.initBuffers();
     }
 

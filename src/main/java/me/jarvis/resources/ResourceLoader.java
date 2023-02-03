@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 public class ResourceLoader implements AutoCloseable {
 
-    InputStream resourceInputStream;
+    private final InputStream resourceInputStream;
 
     public ResourceLoader(String path) {
         ClassLoader classLoader = getClass().getClassLoader();
