@@ -2,8 +2,6 @@ package me.jarvis.util;
 
 import me.jarvis.opengl.math.Matrix4f;
 import me.jarvis.opengl.math.Vector3f;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.glfw.GLFW;
 
 public class Camera {
@@ -27,13 +25,8 @@ public class Camera {
         this.shouldResetLastMousePos = true;
     }
 
-    float smoothOut(float distance) {
-        return Mathf.exp(0.5f * distance) - 1f;
-    }
-
-    private float getSmoothDistanceScalar(float distanceSmoothLimit, float defaultFactor, float correction) {
-        if (this.distance > distanceSmoothLimit) return defaultFactor;
-        return defaultFactor * smoothOut(distance / distanceSmoothLimit) + correction;
+    private float getSmoothDistanceScalar(float defaultFactor) {
+        return defaultFactor * this.distance / 100f;
     }
 
     public void handleCursorPos(double x, double y) {
@@ -54,7 +47,7 @@ public class Camera {
             Vector3f forward = TrigonometryUtils.degreeEulerAnglesToVector(this.yaw, this.pitch);
             Vector3f right = forward.cross(Vector3f.UP).normalized();
             Vector3f up = forward.cross(right).normalized();
-            float dragSpeed = this.getSmoothDistanceScalar(20f, 0.005f, 0f);
+            float dragSpeed = this.getSmoothDistanceScalar(0.008f);
             Vector3f horizontalOffset = right.scale((float)(lastMouseX - x) * dragSpeed);
             Vector3f verticalOffset = up.scale((float)(lastMouseY - y) * dragSpeed);
             this.offset = this.offset.sub(horizontalOffset).add(verticalOffset);
@@ -65,7 +58,7 @@ public class Camera {
     }
 
     public void handleScroll(double xOff, double yOff) {
-        this.distance -= yOff * getSmoothDistanceScalar(20f, 10f, 0.0001f);
+        this.distance -= yOff * getSmoothDistanceScalar(10f);
         this.distance = Math.max(0f, this.distance);
     }
 

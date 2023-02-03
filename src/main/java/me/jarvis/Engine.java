@@ -4,8 +4,6 @@ import me.jarvis.opengl.base.Disposable;
 import me.jarvis.opengl.math.Matrix4f;
 import me.jarvis.particle.*;
 import me.jarvis.util.Camera;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.GL33;
 
@@ -14,14 +12,12 @@ import java.io.IOException;
 
 public class Engine implements Disposable {
 
-    private static final Logger log = LogManager.getLogger(Engine.class);
-
     private final Window window;
     private GLFWCursorPosCallback cursorPosCallback;
     private GLFWScrollCallback scrollCallback;
     private GLFWMouseButtonCallback mouseButtonCallback;
     private GLFWKeyCallback keyCallback;
-    private GLFWErrorCallback errorCallback;
+    private final GLFWErrorCallback errorCallback;
 
     private boolean shouldUpdate = true;
     @Nullable
@@ -76,7 +72,7 @@ public class Engine implements Disposable {
         this.mouseButtonCallback = GLFWMouseButtonCallback.create(this::handleMouseButton).set(this.window.getWindowHandle());
         this.keyCallback = GLFWKeyCallback.create(this::handleKey).set(this.window.getWindowHandle());
 
-        this.emitter = new ShimizuMoriokaSystem(200000);
+        this.emitter = new LorenzAttractor(100000);
 
         GL33.glEnable(GL33.GL_BLEND);
         GL33.glBlendFunc(GL33.GL_SRC_ALPHA, GL33.GL_ONE_MINUS_SRC_ALPHA);
@@ -86,7 +82,7 @@ public class Engine implements Disposable {
             GL33.glClearColor(0, 0, 0, 1);
 
             if (this.shouldUpdate) {
-                emitter.update(0.015f);
+                emitter.update(0.004f);
             }
             emitter.getShader().bind();
             Matrix4f mvp = this.calculateMVP();
