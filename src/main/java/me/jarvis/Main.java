@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        new Engine(960, 540)
+        new Engine(1920, 1080)
             .run()
             .dispose();
     }
