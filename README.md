@@ -13,6 +13,6 @@ Very simple particle system, implemented in Java
 
 ## Examples
 
-*TODO*
+![](examples/lorenz.gif)
 
-Shimizu-Morioka System (200,000 particles, alpha = 0.375, beta = 0.81, dt = 0.015)
+Lorenz Attractor with default parameters (200,000 particles, dt = 0.004)

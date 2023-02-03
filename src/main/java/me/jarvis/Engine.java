@@ -72,7 +72,7 @@ public class Engine implements Disposable {
         this.mouseButtonCallback = GLFWMouseButtonCallback.create(this::handleMouseButton).set(this.window.getWindowHandle());
         this.keyCallback = GLFWKeyCallback.create(this::handleKey).set(this.window.getWindowHandle());
 
-        this.emitter = new LorenzAttractor(100000);
+        this.emitter = new LorenzAttractor(200000);
 
         GL33.glEnable(GL33.GL_BLEND);
         GL33.glBlendFunc(GL33.GL_SRC_ALPHA, GL33.GL_ONE_MINUS_SRC_ALPHA);
