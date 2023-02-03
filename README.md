@@ -1,18 +1,24 @@
 # java-particle-systems
 
-Very simple particle system, implemented in Java 
+Very simple particle system, implemented in Java
 
 ## Controls
 
-* Right Mouse Button: Rotate the camera around the center 
-* Left Mouse Button:  Drag the camera
-* Scroll Wheel:       Zoom In/Out
-
-* Space Bar:          Pause/Unpause
-* R:                  Reset particles          
+| Key/Button         | Action          |
+|--------------------|-----------------|
+| Right Mouse Button | Rotate camera   |
+| Left Mouse Button  | Drag camera     |
+| Scroll Wheel Up    | Zoom In         |
+| Scroll Wheel Down  | Zoom Out        |
+| Space Bar          | Pause/Unpause   |
+| R                  | Reset particles |
 
 ## Examples
 
 ![](examples/lorenz.gif)
-
-Lorenz Attractor with default parameters (200,000 particles, dt = 0.004)
+<br>
+Standard Lorenz Attractor 
+<br>
+(Sigma = 10, Rho = 28, Beta = 8 / 3)
+<br>
+200,000 particles, dt = 0.004
