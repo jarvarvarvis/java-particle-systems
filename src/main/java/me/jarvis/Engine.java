@@ -86,7 +86,7 @@ public class Engine implements Disposable {
             GL33.glClearColor(0, 0, 0, 1);
 
             if (this.shouldUpdate) {
-                emitter.update(0.012f);
+                emitter.update(0.015f);
             }
             emitter.getShader().bind();
             Matrix4f mvp = this.calculateMVP();
