@@ -13,5 +13,6 @@ Very simple particle system, implemented in Java
 
 ## Examples
 
-![](examples/shimizu-morioka.gif)
-Shimizu-Morioka System (200,000 particles, alpha = 0.375, beta = 0.81)
+*TODO*
+
+Shimizu-Morioka System (200,000 particles, alpha = 0.375, beta = 0.81, dt = 0.015)
